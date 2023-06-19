@@ -25,13 +25,27 @@ public class BattleTest extends BaseTest {
     }
 
     @Test(dataProvider = "userData", dataProviderClass = JsonReader.class)
-    public void checkAuthorizationFormData(UserData userData) {
+    public void checkAuthorizationFormData(UserData userData) throws InterruptedException {
         authorizationFormStep.enterEmail(userData.getEmail());
         authorizationFormStep.enterPassword(userData.getPassword());
         authorizationFormStep.clickSubmitButton();
         Assert.assertTrue(authorizationFormStep.getUserEmail());
 
-        shopStep.clickShopButton();
+      /*  shopStep.clickShopButton();
+        shopStep.inputNameOfTheGame("Hearthstone game");
+        shopStep.clickButtonOfCertainGameHearthstone();
+        shopStep.clickAddToCartButton();
+        shopStep.clickViewCartButton();
+        Assert.assertTrue(shopStep.getCardGameHearthstone());*/
+    }
 
+    @Test
+    public void checkShopForm() throws InterruptedException {
+        shopStep.clickShopButton();
+        shopStep.inputNameOfTheGame("Hearthstone game");
+        shopStep.clickButtonOfCertainGameHearthstone();
+        shopStep.clickAddToCartButton();
+        shopStep.clickViewCartButton();
+        Assert.assertTrue(shopStep.getCardGameHearthstone());
     }
 }
