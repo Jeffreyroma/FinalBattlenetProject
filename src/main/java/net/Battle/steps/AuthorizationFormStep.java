@@ -27,4 +27,10 @@ public class AuthorizationFormStep {
         log.info("Click submit button");
         authorizationFormPage.getSubmitButton().click();
     }
+
+    public Boolean getUserEmail() {
+        log.info("Get user email");
+        return authorizationFormPage.getEmailField().isDisplayed();
+    }
+
 }

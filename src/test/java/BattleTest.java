@@ -4,16 +4,15 @@ import net.Battle.models.UserData;
 import net.Battle.steps.AuthorizationFormStep;
 import net.Battle.utils.JsonReader;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class BattleTest {
+public class BattleTest extends BaseTest {
 
     protected WebDriver driver;
 
     private AuthorizationFormStep authorizationFormStep;
-
-
 
     @BeforeClass
     public void preparationBattleTest() {
@@ -26,6 +25,6 @@ public class BattleTest {
         authorizationFormStep.enterEmail(userData.getEmail());
         authorizationFormStep.enterPassword(userData.getPassword());
         authorizationFormStep.clickSubmitButton();
-
+        Assert.assertTrue(authorizationFormStep.getUserEmail());
     }
 }
