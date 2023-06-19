@@ -16,4 +16,9 @@ public class ShopStep {
         log.info("Click shop button");
         shopPage.getShopButton().click();
     }
+
+    public void inputNameOfTheGame(String nameOfTheGame) {
+        log.info("Input name of the game");
+        shopPage.getSearchGameField().sendKeys(nameOfTheGame);
+    }
 }
