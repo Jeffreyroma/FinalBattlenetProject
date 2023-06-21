@@ -7,6 +7,7 @@
                 <methods>
                     <include name="checkAuthorizationFormData"/>
                     <include name="checkShopForm"/>
+                    <include name="addGameCallOfDutyInBasket"/>
                 </methods>
             </class>
         </classes>

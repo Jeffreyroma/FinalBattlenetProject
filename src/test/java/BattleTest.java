@@ -1,4 +1,3 @@
-import com.google.gson.internal.JsonReaderInternalAccess;
 import net.Battle.driver.DriverManager;
 import net.Battle.models.UserData;
 import net.Battle.steps.AuthorizationFormStep;
@@ -24,28 +23,35 @@ public class BattleTest extends BaseTest {
         shopStep = new ShopStep(driver);
     }
 
-    @Test(dataProvider = "userData", dataProviderClass = JsonReader.class)
-    public void checkAuthorizationFormData(UserData userData) throws InterruptedException {
+    @Test(dataProvider = "userData", dataProviderClass = JsonReader.class, description = "Login user")
+    public void checkAuthorizationFormData(UserData userData) {
         authorizationFormStep.enterEmail(userData.getEmail());
         authorizationFormStep.enterPassword(userData.getPassword());
         authorizationFormStep.clickSubmitButton();
         Assert.assertTrue(authorizationFormStep.getUserEmail());
-
-      /*  shopStep.clickShopButton();
-        shopStep.inputNameOfTheGame("Hearthstone game");
-        shopStep.clickButtonOfCertainGameHearthstone();
-        shopStep.clickAddToCartButton();
-        shopStep.clickViewCartButton();
-        Assert.assertTrue(shopStep.getCardGameHearthstone());*/
     }
 
-    @Test
-    public void checkShopForm() throws InterruptedException {
+    @Test(dataProvider = "userData", dataProviderClass = JsonReader.class, description = "Add game Hearthstone in basket")
+    public void checkShopForm(UserData userData) throws InterruptedException {
+        authorizationFormStep.enterEmail(userData.getEmail());
+        authorizationFormStep.enterPassword(userData.getPassword());
+        authorizationFormStep.clickSubmitButton();
+
         shopStep.clickShopButton();
         shopStep.inputNameOfTheGame("Hearthstone game");
         shopStep.clickButtonOfCertainGameHearthstone();
         shopStep.clickAddToCartButton();
         shopStep.clickViewCartButton();
         Assert.assertTrue(shopStep.getCardGameHearthstone());
+    }
+
+    @Test(dataProvider = "userData", dataProviderClass = JsonReader.class, description = "Add game Call of Duty in basket")
+    public void addGameCallOfDutyInBasket(UserData userData) throws InterruptedException {
+        shopStep.clickShopButton();
+        shopStep.inputNameOfTheGame("Call of Duty Black Ops 4");
+        shopStep.clickButtonOfCertainGameCallOfDutyBlackOps4();
+        shopStep.clickAddToCartButton();
+        shopStep.clickViewCartButton();
+        Assert.assertTrue(shopStep.getCardGameCallOfDutyBlackOps4());
     }
 }

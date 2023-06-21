@@ -1,0 +1,1 @@
+{"uuid":"26689962-400c-49b2-bdf3-7f9aedf5a29b","name":"BaseTest.preparation","children":["22e2cf3d-20b3-4c12-a4a2-6eaeb71daf95"],"description":"","befores":[{"name":"preparation","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1687372404739,"stop":1687372405479}],"afters":[],"start":1687372404739,"stop":1687372405479}

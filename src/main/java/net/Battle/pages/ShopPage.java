@@ -21,6 +21,9 @@ public class ShopPage extends BasePage {
     @FindBy(xpath = "//div[@class=\"title meka-font-display meka-font-display--header-7\"]")
     private WebElement buttonOfCertainGameHearthstone;
 
+    @FindBy(xpath = "//div[@class=\"title meka-font-display meka-font-display--header-7\"][text()=\" Call of Duty®: Black Ops 4 \"]")
+    private WebElement buttonOfCertainGameCallOfDutyBlackOps4;
+
     @FindBy(id = "wishlist.action.add")
     private WebElement addToCartButton;
 
@@ -29,6 +32,9 @@ public class ShopPage extends BasePage {
 
     @FindBy(xpath = "//div[@class=\"browsing-card\"]/h2[text()=\" Hearthstone® \"]")
     private WebElement gameCardHearthstone;
+
+    @FindBy(xpath = "//div[@class=\"browsing-card\"]/h2[text()=\" Call of Duty®: Black Ops 4 \"]")
+    private WebElement gameCardCallOfDutyBlackOps4;
 
     public WebElement getShopButton() {
         return shopButton;
@@ -52,5 +58,13 @@ public class ShopPage extends BasePage {
 
     public WebElement getGameCardHearthstone() {
         return gameCardHearthstone;
+    }
+
+    public WebElement getButtonOfCertainGameCallOfDutyBlackOps4() {
+        return buttonOfCertainGameCallOfDutyBlackOps4;
+    }
+
+    public WebElement getGameCardCallOfDutyBlackOps4() {
+        return gameCardCallOfDutyBlackOps4;
     }
 }
