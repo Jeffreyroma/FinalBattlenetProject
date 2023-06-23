@@ -36,6 +36,8 @@ public class ShopPage extends BasePage {
     @FindBy(xpath = "//div[@class=\"browsing-card\"]/h2[text()=\" Call of Duty®: Black Ops 4 \"]")
     private WebElement gameCardCallOfDutyBlackOps4;
 
+
+
     public WebElement getShopButton() {
         return shopButton;
     }

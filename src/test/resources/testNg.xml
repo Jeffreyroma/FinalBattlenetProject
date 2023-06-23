@@ -10,8 +10,8 @@
             <class name="BattleTest">
                 <methods>
                     <include name="checkAuthorizationFormData"/>
-                    <include name="checkShopForm"/>
-                    <include name="addGameCallOfDutyInBasket"/>
+                    <include name="checkShopFormAddGameHearthstone"/>
+                    <include name="checkShopFormAddGameCallOfDutyInBasket"/>
                 </methods>
             </class>
         </classes>

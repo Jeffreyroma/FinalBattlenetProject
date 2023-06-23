@@ -1,5 +1,6 @@
 import net.Battle.driver.DriverManager;
 import net.Battle.models.UserData;
+import net.Battle.steps.AccountStep;
 import net.Battle.steps.AuthorizationFormStep;
 import net.Battle.steps.ShopStep;
 import net.Battle.utils.JsonReader;
@@ -16,11 +17,14 @@ public class BattleTest extends BaseTest {
 
     private ShopStep shopStep;
 
+    private AccountStep accountStep;
+
     @BeforeClass
     public void preparationBattleTest() {
         driver = DriverManager.getDriver();
         authorizationFormStep = new AuthorizationFormStep(driver);
         shopStep = new ShopStep(driver);
+        accountStep = new AccountStep(driver);
     }
 
     @Test(dataProvider = "userData", dataProviderClass = JsonReader.class, description = "Login user")
@@ -32,7 +36,7 @@ public class BattleTest extends BaseTest {
     }
 
     @Test(dataProvider = "userData", dataProviderClass = JsonReader.class, description = "Add game Hearthstone in basket")
-    public void checkShopForm(UserData userData) throws InterruptedException {
+    public void checkShopFormAddGameHearthstone(UserData userData) throws InterruptedException {
         authorizationFormStep.enterEmail(userData.getEmail());
         authorizationFormStep.enterPassword(userData.getPassword());
         authorizationFormStep.clickSubmitButton();
@@ -46,7 +50,12 @@ public class BattleTest extends BaseTest {
     }
 
     @Test(dataProvider = "userData", dataProviderClass = JsonReader.class, description = "Add game Call of Duty in basket")
-    public void addGameCallOfDutyInBasket(UserData userData) throws InterruptedException {
+    public void checkShopFormAddGameCallOfDutyInBasket(UserData userData) throws InterruptedException {
+        accountStep.logOut();
+
+        authorizationFormStep.enterPassword(userData.getPassword());
+        authorizationFormStep.clickSubmitButton();
+
         shopStep.clickShopButton();
         shopStep.inputNameOfTheGame("Call of Duty Black Ops 4");
         shopStep.clickButtonOfCertainGameCallOfDutyBlackOps4();
