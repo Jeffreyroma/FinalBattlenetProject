@@ -37,7 +37,6 @@ public class ShopPage extends BasePage {
     private WebElement gameCardCallOfDutyBlackOps4;
 
 
-
     public WebElement getShopButton() {
         return shopButton;
     }

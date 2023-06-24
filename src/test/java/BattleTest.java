@@ -27,7 +27,7 @@ public class BattleTest extends BaseTest {
         accountStep = new AccountStep(driver);
     }
 
-    @Test(dataProvider = "userData", dataProviderClass = JsonReader.class, description = "Login user")
+    @Test(dataProvider = "userData", dataProviderClass = JsonReader.class, description = "Check authorization  user")
     public void checkAuthorizationFormData(UserData userData) {
         authorizationFormStep.enterEmail(userData.getEmail());
         authorizationFormStep.enterPassword(userData.getPassword());
